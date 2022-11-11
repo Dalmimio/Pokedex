@@ -95,6 +95,7 @@ createApp({
                 height: height/10,
                 weight: (weight/10).toFixed(2),
               })
+              this.pokemones.sort((a, b) => a.id - b.id)
               console.log(this.pokemones);
 
             })            
