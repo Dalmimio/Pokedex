@@ -35,7 +35,7 @@ createApp({
               let habilidades = []
               let nombre = data.name
               let id = data.id
-              let img = data.sprites.front_default
+              let img = data.sprites.other.dream_world.front_default
               let estadisticas = []
               let descripcion = ""
               let especie = ""
