@@ -12,7 +12,7 @@
     <div id="app" class="d-flex flex-column bg-dark justify-content-center align-items-center">
     
       <div class="d-felx gap-3 my-3">
-        <button type="button" id="prev" @click="antPag" class="btn btn-danger m-1">Previous</button>
+        <button type="button" id="prev" @click="antPag" :disabled="antPag" class="btn btn-danger m-1">Previous</button>
         <button type="submit" id="next" @click="sigPag" class="btn btn-danger m-1">Next</button>
       </div>
       <div class="d-flex flex-wrap flex-row justify-content-center w-75 ">
