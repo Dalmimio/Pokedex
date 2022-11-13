@@ -7,8 +7,9 @@ createApp({
       id : 43,
       pokemones:[],
       urlPrincipal: 'https://pokeapi.co/api/v2/pokemon/',
-      urlPrev : '',
-      urlNext : '',
+      urlPrev : null,
+      urlNext : null,
+      pokemon : [],
     };
   },
   created(){
@@ -104,7 +105,15 @@ createApp({
                 weight: (weight/10).toFixed(2),
               })
               this.pokemones.sort((a, b) => a.id - b.id)
-              
+              if(document.title=='More'){
+        
+                  let id = new URLSearchParams(location.search).get('id')
+                 
+                  this.pokemon = this.pokemones.find(poke => poke.id == id)
+                  
+          
+                 
+              }
 
             })            
         })

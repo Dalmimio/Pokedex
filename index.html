@@ -9,75 +9,37 @@
     <title>Pokedex</title>
 </head>
 <body>
-    <div id="app" class="d-flex flex-column bg-dark justify-content-center align-items-center">
+    <div id="app" class=" bg-dark ">
     
-      <div class="d-felx gap-3 my-3">
-        <button type="button" id="prev" @click="antPag" :disabled="antPag" class="btn btn-danger m-1">Previous</button>
-        <button type="submit" id="next" @click="sigPag" class="btn btn-danger m-1">Next</button>
-      </div>
-      <div class="d-flex flex-wrap flex-row justify-content-center w-75 ">
+      <header class="bg-danger d-flex justify-content-around align-items-center">
+        <h1 class="text-white">Pokedex</h1>
+        <div class="d-flex gap-3">
+          <input type="search" name="" id="pokebusqueda" placeholder="Pokebusqueda">
+          <p>tipos</p>
+        </div>
+      </header>
+      
+     <main  class="d-flex flex-column justify-content-center align-items-center">
+      
+      <div class="d-flex flex-wrap flex-row justify-content-center">
        
-        <div  v-for="pokemon in pokemones" class="card-poke">
-            <img :src="pokemon.img" class="card__poke" alt="...">
+        
+        <a :href="'moreinfo.html?id='+ pokemon.id" v-for="pokemon in pokemones" class="card-poke d-flex justify-content-center align-items-center">
+          <img :src="pokemon.img" class="card__poke" alt="...">
             <div class="texto-poke">
               <h5 class="card-title">{{pokemon.name}}</h5>
               <div class="d-flex gap-3 justify-content-center m-1">
-                <p v-for="tip in pokemon.tipo" class="bgcard-text">{{tip}}</p>
+                <p v-for="tip in pokemon.tipo" class="card-text">{{tip}}</p>
               </div>
             </div>
-        </div>
+        </a>
 
-        
-        <!-- <div class="mt-3 text-white descripcionP">
-          <h3>About</h3>
-          <p>{{pokemon.descripcion}}</p>
-
-          <div class="bg-danger rounded-3 p-3">
-           <div d-flex flex-row bg-warning>
-            <p>Pokemon id: {{pokemon.id}}</p> 
-            <p>Especie: {{pokemon.especie}}</p> 
-            <p>Habitad: {{pokemon.habitat}}</p> 
-            <p>Height: {{pokemon.height}} M</p>
-            <p>Weight: {{pokemon.weight}} Kg</p>
-            <p>Base Exp.: {{pokemon.baseExp}}</p>
-            <p>Capture Rate: {{pokemon.captureRate}}%</p>
-            
-            <p>Grow Rate: {{pokemon.growdate}}</p>
-           </div>        
-          </div>
-        </div>
-
-
-        
-        <div class="stats__poke p-1 d-flex flex-column align-items-center">
-          <h3>
-            Stats:
-          </h3>
-          <div class="mt-3 w-100 d-flex flex-column align-items-center">
-            <h3>Habilidades</h3>
-            <div class="d-flex gap-5">
-              <p v-for="habilidad in pokemon.habilidades">{{habilidad}}</p>
-            </div>
-            <div class="w-75 d-flex flex-column align-items-sm-stretch">
-              <p v-for="stats in pokemon.stats">{{stats.name}} - <span>{{stats.nivel}}</span></p>
-  
-            </div>
-          </div>
-        
-        </div>
-        <div class="estadisticas__poke d-flex flex-column align-items-center">
-           
-          <div class="d-flex gap-2 flex-wrap flex-column align-items-center">
-            <h3>movimientos</h3>
-            <div class="movimientos__container d-flex gap-3 flex-wrap">
-              <p v-for="mov in pokemon.moves" class="bg-danger text-center p-1 movimiento">
-                {{mov}}
-              </p>
-            </div>
-          </div>
-        </div> -->
       </div>
-      
+      <div class="d-felx gap-3 my-3">
+        <button type="button" id="prev" @click="antPag" class="btn btn-danger m-1">Previous</button>
+        <button type="submit" id="next" @click="sigPag"  class="btn btn-danger m-1">Next</button>
+      </div>
+     </main>
 
 
 
