@@ -7,28 +7,36 @@ createApp({
       id : 43,
       pokemones:[],
       urlPrincipal: 'https://pokeapi.co/api/v2/pokemon/',
+      urlPrev : '',
+      urlNext : '',
     };
   },
   created(){
-    this.traerDatos()
+    this.traerDatos(this.urlPrincipal);
   },
   mounted() {
-    
-  },
-  methods: {
-    traerDatos(){
-      fetch(this.urlPrincipal)
+    	    
+	
+},
+    methods: {
+    traerDatos(url){
+      this.pokemones = []
+      fetch(url)
       .then(respuesta => respuesta.json())
       .then(data0 => {
+        
+        
+        this.urlPrev = data0.previous;
+        this.urlNext = data0.next;
+        
         data0.results.forEach(poke => {
-          
           fetch(poke.url)
         .then(response => response.json())
         .then(data => {
-
             fetch(data.species.url)
             .then(response => response.json())
             .then(data2 => {
+              
 
               let tipos=[]
               let movimientos = []
@@ -96,17 +104,27 @@ createApp({
                 weight: (weight/10).toFixed(2),
               })
               this.pokemones.sort((a, b) => a.id - b.id)
-              console.log(this.pokemones);
+              
 
             })            
         })
+        
         })
         
 
       })
-        
-    }
-
+      console.log(this.pokemones); 
+    },
+    sigPag() {
+      console.log('Hola desde una funcion');
+      console.log(this.urlNext);
+      this.traerDatos(this.urlNext);
+    },
+    antPag() {
+      console.log('Hola desde una funcion');
+      console.log(this.urlNext);
+      this.traerDatos(this.urlPrev);
+    },
     
   },
   computed:{    
