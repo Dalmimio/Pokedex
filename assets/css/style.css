@@ -91,11 +91,7 @@ a:hover{
 .descripcionP::-webkit-scrollbar-thumb{
     background: transparent;
 }
-.nav{
-    gap: 2rem;
-    padding: 1rem;
-    font-size: 20px;
-}
+
 .details{
     display: flex;
     justify-content: space-between;
@@ -111,6 +107,7 @@ a:hover{
 .stats__poke{
     color: #252525 !important;
 }
+
 .movimientos__container p{
     color: #252525 !important;
     font-weight: 500;
@@ -124,4 +121,29 @@ a:hover{
 .progress-bar{
     width: 30%;
     background-color: chartreuse;
+}
+
+@media screen and (max-width: 768px){
+    #myTabContent{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .main-info{
+        flex-direction: column;
+        padding: 0;
+    }
+    .info1{
+        width: 100%;
+        border-radius: 1rem 1rem 0rem 0rem;
+    }
+    .info1 img{
+        width: 50%;
+    }
+    .descripcionP{
+        width: 100%;
+        border-radius: 0rem 0rem 1rem 1rem;
+    }
+    
+    
 }
