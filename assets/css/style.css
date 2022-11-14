@@ -139,7 +139,7 @@ a:hover{
     }
     .btn-atras{
         position: absolute;
-        top: 0px;
+        top: -25px;
     }
     .info1 img{
         width: 50%;
