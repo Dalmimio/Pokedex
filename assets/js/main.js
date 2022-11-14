@@ -143,6 +143,7 @@ createApp({
                 this.pokemon = this.allPokemones.find(poke => poke.id == id)
                 console.log(this.pokemon);       
             }
+            //agregar local storage
             //no muestra los pokemones despues de la primer pagina
               this.pokemones.sort((a, b) => a.id - b.id)
 
