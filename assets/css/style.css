@@ -124,18 +124,22 @@ a:hover{
 }
 
 @media screen and (max-width: 768px){
-    #myTabContent{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
+    
     .main-info{
         flex-direction: column;
         padding: 0;
     }
+    .contenedor{
+        flex-direction: column;
+        height: 100%;
+    }
     .info1{
+        border-radius: 0rem;
         width: 100%;
-        border-radius: 1rem 1rem 0rem 0rem;
+    }
+    .btn-atras{
+        position: absolute;
+        top: 0px;
     }
     .info1 img{
         width: 50%;
