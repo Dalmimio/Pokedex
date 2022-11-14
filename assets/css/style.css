@@ -108,3 +108,20 @@ a:hover{
     color: #1f1f1f;
     font-weight: bold;
 }
+.stats__poke{
+    color: #252525 !important;
+}
+.movimientos__container p{
+    color: #252525 !important;
+    font-weight: 500;
+    width: 20%;
+    border-bottom: #646464 solid 1px;
+}
+.progress-bar{
+    height: 1rem;
+    border-radius: 1rem;
+}
+.progress-bar{
+    width: 30%;
+    background-color: chartreuse;
+}
