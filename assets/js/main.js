@@ -6,10 +6,12 @@ createApp({
     return{      
       id : 43,
       pokemones:[],
+      allPokemones:[],
       urlPrincipal: 'https://pokeapi.co/api/v2/pokemon/',
       urlPrev : null,
       urlNext : null,
       pokemon : [],
+      tiposPoke : [],
     };
   },
   created(){
@@ -22,6 +24,8 @@ createApp({
     methods: {
     traerDatos(url){
       this.pokemones = []
+      this.tiposPoke = []
+      
       fetch(url)
       .then(respuesta => respuesta.json())
       .then(data0 => {
@@ -58,7 +62,10 @@ createApp({
     
     
                 data.types.forEach(element => {
-                    tipos.push(element.type.name) 
+                    tipos.push(element.type.name)
+                     if(!this.tiposPoke.includes(element.type.name)){
+                      this.tiposPoke.push(element.type.name)
+                     }
                 })
                 data.moves.forEach(element => {
                   movimientos.push(element.move.name)
@@ -76,8 +83,13 @@ createApp({
                   })              
                 })
                
-
-              descripcion = data2.flavor_text_entries[0].flavor_text
+                data2.flavor_text_entries.forEach(idioma => {
+                  if(idioma.language.name == "en"){
+                    descripcion = idioma.flavor_text
+                  }
+                })
+              
+              // descripcion=descripcion.replace(/[^a-zA-Z ]/g, " ");
 
               data2.genera.forEach(element => {
                 if(element.language.name === "en"){
@@ -104,33 +116,53 @@ createApp({
                 height: height/10,
                 weight: (weight/10).toFixed(2),
               })
-              this.pokemones.sort((a, b) => a.id - b.id)
+              this.allPokemones.push({
+                
+                  name: nombre,
+                  tipo: tipos,
+                  moves: movimientos,
+                  habilidades: habilidades,
+                  img: img,
+                  stats: estadisticas,
+                  id: id,
+                  descripcion: descripcion,
+                  especie: especie,
+                  growdate: growdate,
+                  habitat: habitat,
+                  captureRate: captureRate,
+                  baseExp: baseExp,
+                  height: height/10,
+                  weight: (weight/10).toFixed(2),
+                
+              })
+
+
               if(document.title=='More'){
-        
-                  let id = new URLSearchParams(location.search).get('id')
-                 
-                  this.pokemon = this.pokemones.find(poke => poke.id == id)
-                  
-          
-                 
-              }
+                let id = new URLSearchParams(location.search).get('id')
+               
+                this.pokemon = this.allPokemones.find(poke => poke.id == id)
+                console.log(this.pokemon);       
+            }
+            //no muestra los pokemones despues de la primer pagina
+              this.pokemones.sort((a, b) => a.id - b.id)
+
+
+             
 
             })            
         })
         
         })
         
-
       })
-      console.log(this.pokemones); 
+      // console.log(this.pokemones); 
+      // console.log(this.tiposPoke);
     },
     sigPag() {
-      console.log('Hola desde una funcion');
       console.log(this.urlNext);
       this.traerDatos(this.urlNext);
     },
     antPag() {
-      console.log('Hola desde una funcion');
       console.log(this.urlNext);
       this.traerDatos(this.urlPrev);
     },

@@ -1,77 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>More</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>More</title>
 </head>
+
 <body>
-    <div id="app">
-        <div class="card-poke">
-            <img :src="pokemon.img" class="card__poke" alt="...">
-              <div class="texto-poke">
-                <h5 class="card-title">{{pokemon.name}}</h5>
-                <div class="d-flex gap-3 justify-content-center m-1">
-                  <p v-for="tip in pokemon.tipo" class="bgcard-text">{{tip}}</p>
-                </div>
-              </div>
-            </div>
+  <div id="app" class=" bg-dark">
 
-             <!-- <div class="mt-3 text-white descripcionP">
-          <h3>About</h3>
-          <p>{{pokemon.descripcion}}</p>
+    <main class="d-flex main-info justify-content-center">
 
-          <div class="bg-danger rounded-3 p-3">
-           <div d-flex flex-row bg-warning>
-            <p>Pokemon id: {{pokemon.id}}</p> 
-            <p>Especie: {{pokemon.especie}}</p> 
-            <p>Habitad: {{pokemon.habitat}}</p> 
-            <p>Height: {{pokemon.height}} M</p>
-            <p>Weight: {{pokemon.weight}} Kg</p>
-            <p>Base Exp.: {{pokemon.baseExp}}</p>
-            <p>Capture Rate: {{pokemon.captureRate}}%</p>
+      <a href="index.html" class="d-inline-flex" ><i class="back uil uil-corner-up-left"></i></a>
+
+      <div v-if="pokemon" class="d-flex contenedor justify-content-center align-self-center w-100">
+
+        <div class="info1 d-flex flex-column justify-content-between align-items-center">
+
+        <h1 class="card-title text-center">{{pokemon.name}}</h1>
+        <img :src="pokemon.img" alt="{{poke.name}}">
+        <div class="texto-poke">
+          <div class="d-flex gap-1 justify-content-center m-1">
+            <p v-for="tip in pokemon.tipo" class="bgcard-text">{{tip}}</p>
+          </div>
+        </div>
+        </div>
+
+        
+          <div class="text-white descripcionP">
+            <nav class="nav"> 
+                  <a href="#about">About</a>
+                
+                  <a href="#stats">Stats</a>
+                
+                  <a href="#moves">Moves</a>
+            </nav>
             
-            <p>Grow Rate: {{pokemon.growdate}}</p>
-           </div>        
-          </div>
-        </div>
-
-
+              
+              <div class="mt-3">
+                <h4 id="about">Description</h4>
+              <p>{{pokemon.descripcion}}</p>
+              </div>
+      
+              <div class="rounded-3 ">
+               <div d-flex flex-row bg-warning>
+                <div class="details">
+                  <p>Pokemon id:</p>
+                  <span> {{pokemon.id}}</span>
+                </div> 
+               <div class="details">
+                <p>Especie:</p> 
+                <span> {{pokemon.especie}}</span>
+               </div>
+                <div class="details">
+                  <p>Habitad:</p>
+                  <span> {{pokemon.habitat}}</span>
+                </div> 
+                <div class="details">
+                  <p>Height:</p>
+                  <span> {{pokemon.height}} M</span>
+                </div>
+                <div class="details">
+                  <p>Weight:</p>
+                  <span>
+                    {{pokemon.weight}} Kg
+                  </span>
+                </div>
+                <div class="details">
+                  <p>Base Exp.: </p>
+                  <span>{{pokemon.baseExp}}</span>
+                </div>
+                <div class="details">
+                  <p>Capture Rate: </p>
+                  <span>{{pokemon.captureRate}}%</span>
+                </div>                
+                <div class="details">
+                  <p>Grow Rate: </p>
+                  <span>{{pokemon.growdate}}</span>
+                </div>
+               </div>        
+              </div>
+             
+              <!-- <div id="stats" class="stats__poke p-1 text-white d-flex flex-column align-items-center">
+                <h3>
+                  Stats:
+                </h3>
+                <div class="mt-3 w-100 d-flex flex-column align-items-center">
+                  <h3>Habilidades</h3>
+                  <div class="d-flex gap-5">
+                    <p v-for="habilidad in pokemon.habilidades">{{habilidad}}</p>
+                  </div>
+                  <div class="w-75 d-flex flex-column align-items-sm-stretch">
+                    <p v-for="stats in pokemon.stats">{{stats.name}} - <span>{{stats.nivel}}</span></p>
         
-        <div class="stats__poke p-1 d-flex flex-column align-items-center">
-          <h3>
-            Stats:
-          </h3>
-          <div class="mt-3 w-100 d-flex flex-column align-items-center">
-            <h3>Habilidades</h3>
-            <div class="d-flex gap-5">
-              <p v-for="habilidad in pokemon.habilidades">{{habilidad}}</p>
-            </div>
-            <div class="w-75 d-flex flex-column align-items-sm-stretch">
-              <p v-for="stats in pokemon.stats">{{stats.name}} - <span>{{stats.nivel}}</span></p>
-  
-            </div>
+                  </div>
+                </div>
+              
+              </div>
+              
+              <div id="moves" class="estadisticas__poke d-flex flex-column align-items-center">
+               
+                <div class="d-flex gap-2 flex-wrap flex-column align-items-center">
+                  <h3>movimientos</h3>
+                  <div class="movimientos__container d-flex gap-3 flex-wrap">
+                    <p v-for="mov in pokemon.moves" class="bg-danger text-center p-1 movimiento">
+                      {{mov}}
+                    </p>
+                  </div>
+                </div>
+              </div> -->
+      
           </div>
-        
-        </div>
-        <div class="estadisticas__poke d-flex flex-column align-items-center">
-           
-          <div class="d-flex gap-2 flex-wrap flex-column align-items-center">
-            <h3>movimientos</h3>
-            <div class="movimientos__container d-flex gap-3 flex-wrap">
-              <p v-for="mov in pokemon.moves" class="bg-danger text-center p-1 movimiento">
-                {{mov}}
-              </p>
-            </div>
-          </div>
-        </div> -->
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+       
+      </div>
+
+    </main>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
-      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-      <script src="assets/js/main.js"></script>
-   
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="assets/js/main.js"></script>
+
 </body>
+
 </html>

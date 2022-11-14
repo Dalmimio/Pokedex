@@ -15,7 +15,19 @@
         <h1 class="text-white">Pokedex</h1>
         <div class="d-flex gap-3">
           <input type="search" name="" id="pokebusqueda" placeholder="Pokebusqueda">
-          <p>tipos</p>
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Types
+            </button>
+            <ul class="dropdown-menu bg-dark text-white">
+              <li v-for="tipo in tiposPoke" class="p-1 gap-2 d-flex">
+                <input type="radio" title="{{tipo}}" name="{{tipo}}" value="{{tipo}}" id="{{tipo}}">
+                <label for="{{tipo}}">{{tipo}}</label>
+              </li>
+              
+            </ul>
+          </div>
         </div>
       </header>
       
@@ -24,8 +36,12 @@
       <div class="d-flex flex-wrap flex-row justify-content-center">
        
         
-        <a :href="'moreinfo.html?id='+ pokemon.id" v-for="pokemon in pokemones" class="card-poke d-flex justify-content-center align-items-center">
+        <a :href="'moreinfo.html?id='+ pokemon.id" v-for="pokemon in pokemones" class="card-poke d-flex justify-content-center align-items-center flex-column">
+          
           <img :src="pokemon.img" class="card__poke" alt="...">
+          <div class="img-back">
+            
+          </div>
             <div class="texto-poke">
               <h5 class="card-title">{{pokemon.name}}</h5>
               <div class="d-flex gap-3 justify-content-center m-1">

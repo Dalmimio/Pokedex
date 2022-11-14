@@ -17,11 +17,12 @@ header #pokebusqueda{
 }
 main{
     min-height: 90vh;
+    padding: .5rem;
 }
 
 .card-poke{
-    width: 18rem;
-    height: 10rem;
+    width: 15rem;
+    height: 15rem;
     background-color: transparent;
     border-radius: 10px;
     padding: 10px;
@@ -30,12 +31,14 @@ main{
     background-color: rgb(99, 99, 99);
 }
 
+
 .card__poke{
-    height: 100%;
-    width: 55%;
+    height: 70%;
+    width: 80%;
+    z-index: 1;
+
 }
 .texto-poke{
-    padding: 10px;
     text-transform: capitalize;
     border-radius: 0px 0px 15px 15px;
 }
@@ -49,4 +52,59 @@ a{
 a:hover{
     color: #e9e9e9;
     transform: scale(1.05);
+}
+
+.main-info{
+    height: 100vh;
+    background-color: rgb(72, 136, 72);
+}
+.main-info .back{
+    margin-top: 1rem;
+    font-size: 50px;
+}
+.contenedor{
+    height: 90%;
+}
+.info1{
+    width: 30%;
+    color: #EEEEEE;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem 0rem 0rem 1rem;
+}
+.info1 img{
+    width: 80%;
+}
+.descripcionP{
+    background-color: #EEEEEE;
+    color: black !important;
+    width: 50%;
+    height: 100% !important;
+    border-radius: 0rem 1rem 1rem 0rem;
+    padding: 1rem;
+    overflow: scroll;
+}
+.descripcionP::-webkit-scrollbar{
+    background: transparent;
+    width: 0rem;
+}
+
+.descripcionP::-webkit-scrollbar-thumb{
+    background: transparent;
+}
+.nav{
+    gap: 2rem;
+    padding: 1rem;
+    font-size: 20px;
+}
+.details{
+    display: flex;
+    justify-content: space-between;
+}
+.details p{
+    font-weight: bold;
+    color: #3a3a3a;
+}
+.details span{
+    color: #1f1f1f;
+    font-weight: bold;
 }
