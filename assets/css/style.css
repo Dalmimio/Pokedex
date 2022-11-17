@@ -76,6 +76,12 @@ a:hover{
 .info1 img{
     width: 80%;
 }
+.info1 .type{
+    margin-top: 10px;
+    border: #252525 solid 2px;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
 
 .descripcionP{
     background-color: #EEEEEE;
@@ -132,7 +138,7 @@ a:hover{
 .movimientos__container p{
     color: #252525 !important;
     font-weight: 500;
-    width: 20%;
+    width: 30%;
     border-bottom: #646464 solid 1px;
 }
 .progress-bar{
@@ -143,7 +149,6 @@ a:hover{
     width: 30%;
     background-color: chartreuse;
 }
-
 @media screen and (max-width: 768px){
     header{
         flex-direction: column;
@@ -161,18 +166,30 @@ a:hover{
     .info1{
         border-radius: 0rem;
         width: 100%;
+        height: 50%;
+    }
+    .cart-text{
+        order: 1;
+    }
+    .texto-poke{
+        order: 3;
     }
     .btn-atras{
         position: absolute;
         top: -25px;
     }
     .info1 img{
-        width: 50%;
+        order: 2;
+        width: 150px;
     }
     .descripcionP{
         width: 100%;
         border-radius: 0rem;
+    }   
+    
+}
+@media screen and (max-width: 400px){ 
+    .movimientos__container p{
+        width: 40%;
     }
-    
-    
 }

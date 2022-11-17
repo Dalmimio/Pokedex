@@ -26,8 +26,8 @@
         <h1 class="card-title text-center">{{pokemon.name}}</h1>
         <img :src="pokemon.img" alt="{{poke.name}}">
         <div class="texto-poke">
-          <div class="d-flex gap-1 justify-content-center m-1">
-            <p v-for="tip in pokemon.tipo" class="bgcard-text">{{tip}}</p>
+          <div class="d-flex gap-2 justify-content-center">
+            <p v-for="tip in pokemon.tipo" class="type">{{tip}}</p>
           </div>
         </div>
         </div>
